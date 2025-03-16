@@ -26,5 +26,5 @@ form.addEventListener("submit", (event)=> {
             
         });
     })
-    .catch((error) => alert("Error fetching images: ", error));
+    .catch((error) => alert("Error generating images: ", error));
 });
