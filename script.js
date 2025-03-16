@@ -2,14 +2,12 @@ const form = document.querySelector('.search');
 const input = document.querySelector(".keyword");
 const images = document.querySelectorAll("img");
 images.forEach((img)=> img.style.display = "none");
-
 const apiKey = "IGPVRNQ8CoJjGHSQk4uc91qfEAdDcgxNxFtb9juAIlk";
-
 form.addEventListener("submit", (event)=> {
     event.preventDefault();     
     let query = input.value.trim();
     if (query === "") {
-        alert("Please enter a search term!");
+        alert("Please enter a search term");
         return;
     }    
     images.forEach((img) => img.src = "");
@@ -17,7 +15,7 @@ form.addEventListener("submit", (event)=> {
     .then((r) => r.json())
     .then((data) => {
         if (data.results.length === 0) {
-            alert("No images found!");
+            alert("No images found!!!");
             return;
         }
         const myarr = data.results.map((dataobj) => dataobj.urls.regular);
@@ -28,5 +26,5 @@ form.addEventListener("submit", (event)=> {
             
         });
     })
-    .catch((error) => alert("Error fetching images:", error));
+    .catch((error) => alert("Error fetching images: ", error));
 });
