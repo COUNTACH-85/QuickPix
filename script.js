@@ -14,19 +14,19 @@ form.addEventListener("submit", (event)=> {
     }    
     images.forEach((img) => img.src = "");
     fetch(`https://api.unsplash.com/search/photos?query=${query}&per_page=10&client_id=${apiKey}`)
-        .then((r) => r.json())
-        .then((data) => {
-            if (data.results.length === 0) {
-                alert("No images found!");
-                return;
-            }
-            const myarr = data.results.map((dataobj) => dataobj.urls.regular);
-            images.forEach((img, index) => {
-                
-                  img.src = myarr[index];
-                  img.style.display = "block";
-                
-            });
-        })
-        .catch((error) => alert("Error fetching images:", error));
+    .then((r) => r.json())
+    .then((data) => {
+        if (data.results.length === 0) {
+            alert("No images found!");
+            return;
+        }
+        const myarr = data.results.map((dataobj) => dataobj.urls.regular);
+        images.forEach((img, index) => {
+            
+              img.src = myarr[index];
+              img.style.display = "block";
+            
+        });
+    })
+    .catch((error) => alert("Error fetching images:", error));
 });
