@@ -4,7 +4,8 @@ const images = document.querySelectorAll("img");
 images.forEach((img)=> img.style.display = "none");
 const apiKey = "IGPVRNQ8CoJjGHSQk4uc91qfEAdDcgxNxFtb9juAIlk";
 form.addEventListener("submit", (event)=> {
-    event.preventDefault();     
+    event.preventDefault(); 
+    images.forEach((img)=> img.style.display = "none");
     let query = input.value.trim();
     if (query === "") {
         alert("Please enter a search term");
